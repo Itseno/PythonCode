@@ -7,7 +7,7 @@ list_name = [item1, item2, item3]
 
 print(list_name)
 
-if len(list_name) < 1:
+if len(list_name) < 4:
     print("Empty List!")
 else:
     print("Non-empty list.")
