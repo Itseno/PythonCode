@@ -14,11 +14,11 @@ def clean( input ):
       clean += character
   return clean.lower()
 
-userInput = input("Where is the file that is being scanned? (Type 1 if you want to use the preset files.) ")
-if userInput == 1:
+userInput = input("Where is the file that is being scanned? (Type 1 if you want to use the preset files.) " )
+if len(userInput) < 1:
     userInput = "carols.txt"
-common = input("Where is the file that has all the common words? (Type 1 if you want to use the preset files.) ")
-if common == 1:
+common = input("Where is the file that has all the common words? (Type 1 if you want to use the preset files.) " )
+if len(common) < 1:
     common = "common.txt"
 
 counts = {}
