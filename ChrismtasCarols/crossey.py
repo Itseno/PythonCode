@@ -17,25 +17,25 @@ def clean( input ):
 userInput = input("Where is the file that is being scanned? (Type 1 if you want to use the preset files.) ")
 if userInput == 1:
     userInput = "carols.txt"
-common = input("Where is the file that has all the common words? (Type 1 if you want to use the preset files.) ")
-if common == 1:
-    common = "common.txt"
+commonFile = input("Where is the file that has all the common words? (Type 1 if you want to use the preset files.) ")
+if commonFile == 1:
+    commonFile = "common.txt"
 
-counts = {}
+count = {}
 input = clean(open(userInput).read())
-common = clean(open(common).read())
+commonFile = clean(open(commonFile).read())
 # step through our text, counting each word and putting it into our dictionary
 # if the word hasn't been added, we set it to 0 before counting
 for word in input.split():
-    if word in common:
-        counts[word] = 0
-    if word not in counts:
-        counts[word] = 0
-    counts[word] += 1
+    if word in commonFile:
+        count[word] = 0
+    if word not in count:
+        count[word] = 0
+    count[word] += 1
 
-counts = sorted( counts.items(), key=operator.itemgetter(1), reverse=True )
+count = sorted( count.items(), key=operator.itemgetter(1), reverse=True )
 
-top = counts[:top_count]
+top = count[:top_count]
 
 count = 1
 for item in top:
