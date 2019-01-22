@@ -70,7 +70,7 @@ while userChoice == False:
            sys.exit()
     if player_score == top_score:
         print("You win!")
-        playAgain = input("Would you like to play again?")
+        playAgain = input("Would you like to play again? ")
         if playAgain == "Yes":
             userChoice = False
             comp_score = 0
