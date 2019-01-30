@@ -12,17 +12,18 @@ p_wis = randint(1, 3)
 p_cha = randint(1, 3)
 
 roll_20 = randint(1,20)
-
-input = input("Do you want to attack?")
-if input == "a":
-    roll_20 = int(randint(1,20))
-    p_attack = roll_20 + p_str
-    print("Roll 20: " + str(roll_20))
-    print("Player Strength: " + str(p_str))
-    if p_attack > mon_def:
-        roll_8 = randint(1,8)
-        print("You dealt " + str(roll_8) + " damage!")
-        mon_health = mon_health - roll_8
-        print("Monster Health: " + str(mon_health))
-    else:
-        print("You missed!")
+input = input("do you want to attack?")
+while (input) == "a":
+    input_2 = input("Do you want to attack?")
+    if input_2 is "a":
+        roll_20 = int(randint(1,20))
+        p_attack = roll_20 + p_str
+        print("Roll 20: " + str(roll_20))
+        print("Player Strength: " + str(p_str))
+        if p_attack > mon_def:
+            roll_8 = randint(1,8)
+            print("You dealt " + str(roll_8) + " damage!")
+            mon_health = mon_health - roll_8
+            print("Monster Health: " + str(mon_health))
+        else:
+            print("You missed!")
