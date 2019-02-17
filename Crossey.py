@@ -1,47 +1,80 @@
-#Remove all non alpha
-#Input sentence Convert sentence into array, with each section a word.
+from random import *
 import sys
-pyg = "ay"
 
-alphabet = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm "
-clusters_two = ["sh", "gl", "ch", "ph", "tr", "br", "fr", "bl", "gr", "st", "sl", "cl", "pl", "fl", "th"]
-clusters_three = ["str", "thr"]
+print("Welcome to Extreme RPS!")
 
-def clean(input):
-    clean = ""
-    for character in input:
-        if character in alphabet:
-            clean += character
-    return clean.lower()
+t = ["Rock", "Paper", "Scissors"]
 
+compChoice = t[randint(0,2)]
 
-def convert(word):
-    if len(word) > 0 and word.isalpha():
-        new_word = ''
-        first = word[0]
-        if first in ['a', 'e', 'i', 'o', 'u'] or len(word) < 3:
-            new_word = word + pyg
-        elif word[0] + word[1] + word[2] in clusters_three:
-            first_three = word[3:]
-            new_word = first_three + word[:3] + pyg
-        elif word[0] + word[1] in clusters_two:
-            first_two = word[2:]
-            new_word = first_two + word[:2] + pyg
+userChoice = False
+
+comp_score = 0
+player_score = 0
+
+top_score = int(input("What will be the top score? "))
+
+while userChoice == False:
+    userChoice = str(input("Rock, Paper, Scissors? "))
+    print(compChoice)
+    if userChoice == compChoice:
+        print("Sorry mate that's a tie!")
+        print("Computer Score: " + str(comp_score))
+        print("Player Score: " + str(player_score))
+    elif userChoice == "Rock":
+        if compChoice == "Paper":
+            print("You lose!")
+            comp_score = comp_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
         else:
-            new_word = word + first + pyg
-            new_word = new_word[1:]
-        return(new_word)
+            print("You win!")
+            player_score = player_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
+    elif userChoice == "Paper":
+        if compChoice == "Scissors":
+            print("You lose!")
+            comp_score = comp_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
+        else:
+            print("You win!")
+            player_score = player_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
+    elif userChoice == "Scissors":
+        if compChoice == "Rock":
+            print("You lose!")
+            comp_score = comp_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
+        else:
+            print("You win!")
+            player_score = player_score + 1
+            print("Computer Score: " + str(comp_score))
+            print("Player Score: " + str(player_score))
     else:
-        return ''
-print("Welcome to the Pig Latin Translator, enter a sentence to be translated, or type exit to quit!")
-loop = 5
-while loop == 5:
-    sentence = input("Enter a sentence: ")
-    sentence = clean(sentence)
-    if sentence == "exit":
-        print("Exiting...")
-        sys.exit()
-    else:
-        for word in sentence.split():
-            print(convert(word), end=" ")
-        print("")
+        print("That's not a valid play. Check your spelling!")
+    userChoice = False
+    compChoice = t[randint(0,2)]
+    if comp_score == top_score:
+        print("Computer Wins!")
+        playAgain = input("Would you like to play again?")
+        if playAgain == "Yes":
+            userChoice = False
+            comp_score = 0
+            player_score = 0
+            top_score = int(input("What will be the top score? "))
+        else:
+           sys.exit()
+    if player_score == top_score:
+        print("You win!")
+        playAgain = input("Would you like to play again? ")
+        if playAgain == "Yes":
+            userChoice = False
+            comp_score = 0
+            player_score = 0
+            top_score = int(input("What will be the top score? "))
+        else:
+            sys.exit()
