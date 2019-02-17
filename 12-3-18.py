@@ -5,14 +5,14 @@ if age >= 0:
 else:
     print("You are a time traveller.")
 
-height = input("How tall are you?")
+height = int(input("How tall are you?"))
 
 if height < 256:
     print("Too short for this ride")
 else:
     print("Welcome aboard")
 
-if ( True )
+if ( True ):
     print("Always prints true.")
 
 # < <= > >= == !=
